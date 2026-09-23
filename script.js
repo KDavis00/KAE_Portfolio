@@ -26,9 +26,15 @@ function setMode(mode){
   });
   creativeCopy.classList.toggle("hidden", mode === "tech");
   techCopy.classList.toggle("hidden", mode !== "tech");
-  creativeFrame.classList.toggle("hidden", mode === "tech");
-  techFrame.classList.toggle("hidden", mode !== "tech");
-  textSwitch.dataset.mode = mode === "tech" ? "creative" : "tech";
+  if (creativeFrame) {
+    creativeFrame.classList.toggle("hidden", mode === "tech");
+  }
+  if (techFrame) {
+    techFrame.classList.toggle("hidden", mode !== "tech");
+  }
+  if (textSwitch) {
+    textSwitch.dataset.mode = mode === "tech" ? "creative" : "tech";
+  }
   textSwitch.textContent = mode === "tech" ? "View creative side ↗" : "View tech side ↗";
   creativeDescription.classList.toggle("hidden", mode === "tech");
   techDescription.classList.toggle("hidden", mode !== "tech");
