@@ -1,0 +1,174 @@
+KAE CREATIVE CONTENT EDITING GUIDE
+=================================
+
+Copy and paste only the line or block you want to replace. This file is a reference guide and does not change the website by itself.
+
+
+1. FEATURED CREATIVE IMAGE
+--------------------------
+Replace the image path with a file inside images/:
+
+<img src="images/environment/Travel/Spain/IMG_0058.JPG" alt="Featured Photography from Spain">
+
+Example:
+
+<img src="images/people/featured-photo.jpg" alt="Description of the featured photo">
+
+
+2. ENVIRONMENT PHOTO
+--------------------
+Copy this card and change the path, title, location, and gallery number:
+
+<article class="card" data-type="creative" data-category="environment">
+  <div class="media"><img src="images/environment/Travel/Spain/NEW-PHOTO.JPG" alt="Environment photography from LOCATION"><span>GALLERY / 17</span></div>
+  <div class="card-info"><h3>Photo Title</h3><p>LOCATION · 2026</p></div>
+</article>
+
+
+3. PET PHOTO
+------------
+Copy this block for a pet inside the correct dropdown:
+
+<div class="gallery-grid"><article class="card" data-type="creative" data-category="pets">
+  <div class="media"><img src="images/pets/NEW-PET-PHOTO.JPG" alt="PET NAME, a pet companion"><span>GALLERY / 17</span></div>
+  <div class="card-info"><h3>PET NAME</h3><p>Companion · 2026</p></div>
+</article></div>
+
+Change:
+- NEW-PET-PHOTO.JPG
+- PET NAME
+- GALLERY / 17
+
+
+4. PET DROPDOWN
+---------------
+Copy this block to create another pet category:
+
+<details class="environment-subcategory">
+  <summary class="subcategory-title">PET NAME</summary>
+  <div class="gallery-grid"><article class="card" data-type="creative" data-category="pets">
+    <div class="media"><img src="images/pets/PET-PHOTO.JPG" alt="PET NAME, a pet companion"><span>GALLERY / 17</span></div>
+    <div class="card-info"><h3>PET NAME</h3><p>Companion · 2026</p></div>
+  </article></div>
+</details>
+
+
+5. DIGITAL ART IMAGE
+--------------------
+Replace the Digital Art placeholder with this card:
+
+<article class="card" data-type="creative" data-category="art">
+  <div class="media"><img src="images/digital-art/ARTWORK.jpg" alt="Description of digital artwork"><span>GALLERY / 17</span></div>
+  <div class="card-info"><h3>Artwork Title</h3><p>Digital Art · 2026</p></div>
+</article>
+
+
+6. HOMELAB IMAGE
+----------------
+Replace the Home Lab image path only:
+
+<img src="images/homelab/homelab.jpg" alt="Home Lab infrastructure">
+
+Example:
+
+<img src="images/homelab/my-real-homelab-photo.jpg" alt="12U home lab micro-datacenter">
+
+
+7. HOMELAB DESCRIPTION
+----------------------
+Replace the text inside the project-description block:
+
+<h4>12U Micro-Datacenter</h4>
+<p>Write a short summary of the project here.</p>
+<p>Write a second paragraph about the systems, hardware, and purpose here.</p>
+<ul>
+  <li><strong>Main Server Node:</strong> Describe the main server here.</li>
+  <li><strong>Storage Node:</strong> Describe the NAS and backups here.</li>
+  <li><strong>Media Archive Pool:</strong> Describe the media storage here.</li>
+</ul>
+
+
+8. GITHUB REPOSITORY LINK
+-------------------------
+Keep the repository link on the title and Repo link:
+
+href="https://github.com/YOUR-USERNAME/YOUR-REPOSITORY"
+
+Example:
+
+href="https://github.com/KDavis00/my-new-project"
+
+
+9. LIVE PROJECT LINK
+--------------------
+For a deployed site, update the card data-live value:
+
+data-live="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/"
+
+Example:
+
+data-live="https://kdavis00.github.io/my-new-project/"
+
+The card click opens the live site. The Repo arrow can continue linking to GitHub.
+
+
+10. GITHUB PROJECT CARD
+----------------------
+Copy this card for another project:
+
+<article class="card github-card" data-type="tech" data-category="github" data-live="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/" tabindex="0">
+  <div class="media tech-media"><img src="images/github/project-preview.svg" alt="PROJECT NAME site preview"><span>PROJECTS / 05</span></div>
+  <div class="card-info"><h3><a class="repo-title" href="https://github.com/YOUR-USERNAME/YOUR-REPOSITORY" target="_blank" rel="noopener">PROJECT NAME</a></h3><p>GitHub · PROJECT TYPE</p><a class="live-link" href="https://github.com/YOUR-USERNAME/YOUR-REPOSITORY" target="_blank" rel="noopener">Repo ↗</a></div>
+</article>
+
+
+11. TECH STACK ITEM
+-------------------
+Add one item inside the correct stack group:
+
+<span>NEW TECHNOLOGY</span>
+
+Examples:
+
+<span>React</span>
+<span>Python</span>
+<span>Docker</span>
+
+
+12. TECH STACK GROUP
+--------------------
+Copy this block to add a new category:
+
+<div class="stack-group">
+  <h3>NEW CATEGORY</h3>
+  <div class="stack-list"><span>TECHNOLOGY ONE</span><span>TECHNOLOGY TWO</span></div>
+</div>
+
+
+13. EMAIL
+---------
+Replace the email address in the mailto link and visible text:
+
+<a class="email" href="mailto:YOUR-EMAIL@example.com">Send me an Email ↗</a>
+
+
+14. SOCIAL LINKS
+----------------
+Replace each URL only:
+
+<div class="socials"><a href="https://www.instagram.com/YOUR-USERNAME/">Instagram ↗</a><a href="https://www.linkedin.com/in/YOUR-USERNAME/">LinkedIn ↗</a><a href="https://github.com/YOUR-USERNAME">GitHub ↗</a></div>
+
+
+15. SAFE IMAGE PATH RULE
+-----------------------
+All public images should be inside the consolidated images folder:
+
+images/environment/
+images/pets/
+images/headshot/
+images/homelab/
+images/github/
+
+Use forward slashes in paths, even on Windows.
+
+Always give every image useful alt text. Avoid spaces in filenames when possible.
