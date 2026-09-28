@@ -16,37 +16,37 @@ const lightboxImage = document.querySelector("#lightboxImage");
 const lightboxClose = document.querySelector(".lightbox-close");
 const galleryImages = document.querySelectorAll(".media img");
 const liveProjectCards = document.querySelectorAll(".github-card[data-live]");
+const ticker = document.querySelector(".ticker");
+const tickerTrack = ticker?.querySelector(".ticker-track");
+const tickerGroups = tickerTrack?.querySelectorAll(".ticker-group");
+const tickerAccessibleLabel = ticker?.querySelector(".sr-only");
+const tickerTerms = {
+  creative: ["PHOTOGRAPHY", "DIGITAL ART", "FILM PRODUCTION", "CREATIVE DIRECTION"],
+  tech: ["IT", "NETWORK INFRASTRUCTURE", "PROGRAMMING", "WEB DEVELOPMENT & DESIGN", "SYSTEMS ADMINISTRATION"]
+};
 
-function setMode(mode){
-  document.body.classList.toggle("tech-mode", mode === "tech");
-  modes.forEach(b => {
-    const isActive = b.dataset.mode === mode;
-    b.classList.toggle("active", isActive);
-    b.setAttribute("aria-pressed", isActive);
-  });
-  creativeCopy.classList.toggle("hidden", mode === "tech");
-  techCopy.classList.toggle("hidden", mode !== "tech");
-  if (creativeFrame) {
-    creativeFrame.classList.toggle("hidden", mode === "tech");
-  }
-  if (techFrame) {
-    techFrame.classList.toggle("hidden", mode !== "tech");
-  }
-  if (textSwitch) {
-    textSwitch.dataset.mode = mode === "tech" ? "creative" : "tech";
-  }
-  textSwitch.textContent = mode === "tech" ? "View creative side ↗" : "View tech side ↗";
-  creativeDescription.classList.toggle("hidden", mode === "tech");
-  techDescription.classList.toggle("hidden", mode !== "tech");
-  if (workModeTitle) {
-    workModeTitle.textContent = mode === "tech" ? "PROJECTS" : "GALLERY";
-  }
-  gallerySections.forEach(section => {
-    section.style.display = section.dataset.type === mode ? "" : "none";
-  });
-  cards.forEach(card => {
-    card.style.display = card.dataset.type === mode ? "" : "none";
-  });
+function fillTicker(mode = document.body.classList.contains("tech-mode") ? "tech" : "creative"){
+  if (!ticker || !tickerGroups || !tickerAccessibleLabel) return;
+  const [firstGroup, secondGroup] = tickerGroups;
+  firstGroup.replaceChildren();
+  const labels = tickerTerms[mode];
+  do {
+    labels.forEach(label => {
+      const term = document.createElement("span");
+      term.className = "ticker-term";
+      term.textContent = label;
+      firstGroup.append(term);
+    });
+  } while (firstGroup.scrollWidth < ticker.clientWidth);
+  secondGroup.replaceChildren(...Array.from(firstGroup.children, item => item.cloneNode(true)));
+  const sideName = mode === "tech" ? "Technology" : "Creative";
+  tickerAccessibleLabel.textContent = `${sideName} disciplines: ${labels.map(label => label.toLowerCase()).join(", ")}.`;
+}
+
+if (ticker && tickerGroups) {
+  new ResizeObserver(() => fillTicker()).observe(ticker);
+  fillTicker();
+  document.fonts?.ready.then(() => fillTicker());
 }
 
 function openLightbox(src, alt){
@@ -99,6 +99,39 @@ document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeLightbox();
 });
 
-modes.forEach(b => b.addEventListener("click", () => setMode(b.dataset.mode)));
-modeLinks.forEach(b => b.addEventListener("click", () => setMode(b.dataset.mode)));
+function setMode(mode){
+  document.body.classList.toggle("tech-mode", mode === "tech");
+  modes.forEach(b => {
+    const isActive = b.dataset.mode === mode;
+    b.classList.toggle("active", isActive);
+    b.setAttribute("aria-pressed", isActive);
+  });
+  creativeCopy.classList.toggle("hidden", mode === "tech");
+  techCopy.classList.toggle("hidden", mode !== "tech");
+  if (creativeFrame) {
+    creativeFrame.classList.toggle("hidden", mode === "tech");
+  }
+  if (techFrame) {
+    techFrame.classList.toggle("hidden", mode !== "tech");
+  }
+  if (textSwitch) {
+    textSwitch.dataset.mode = mode === "tech" ? "creative" : "tech";
+  }
+  textSwitch.textContent = mode === "tech" ? "View creative side ↗" : "View tech side ↗";
+  creativeDescription.classList.toggle("hidden", mode === "tech");
+  techDescription.classList.toggle("hidden", mode !== "tech");
+  if (workModeTitle) {
+    workModeTitle.textContent = mode === "tech" ? "PROJECTS" : "GALLERY";
+  }
+  gallerySections.forEach(section => {
+    section.style.display = section.dataset.type === mode ? "" : "none";
+  });
+  cards.forEach(card => {
+    card.style.display = card.dataset.type === mode ? "" : "none";
+  });
+  fillTicker(mode);
+}
+
+modes.forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
+modeLinks.forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
 setMode("creative");

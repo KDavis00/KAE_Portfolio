@@ -20,7 +20,7 @@
     <span aria-hidden="true">×</span>
     <button class="mode" aria-pressed="false" data-mode="tech">TECHNOLOGY</button>
   </div>
-  <nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#about">About</a> </a></nav>
+  <nav aria-label="Primary navigation"><a href="#work">Gallery</a><a href="#featured">Highlights</a><a href="#about">About</a></nav>
   <a class="nav-cta" href="#contact">Let's talk ↗</a>
 </header>
 
@@ -44,7 +44,13 @@
 </section>
 
 <!-- Scrolling discipline list -->
-<section class="ticker" aria-label="Creative and technology disciplines"><div><span>PHOTOGRAPHY ✦ DIGITAL ART ✦ NETWORKING ✦ HOMELAB ✦ IT ✦ VISUAL DESIGN ✦</span><span aria-hidden="true">PHOTOGRAPHY ✦ DIGITAL ART ✦ NETWORKING ✦ HOMELAB ✦ IT ✦ VISUAL DESIGN ✦</span></div></section>
+<section class="ticker" aria-label="Creative and technology disciplines">
+  <div class="ticker-track" aria-hidden="true">
+    <div class="ticker-group"></div>
+    <div class="ticker-group"></div>
+  </div>
+  <span class="sr-only">Creative disciplines: Photography, Digital Art, Film Production, Creative Direction.</span>
+</section>
 
 <!-- Gallery and project sections -->
 <section id="work" class="work section" aria-labelledby="work-title">
@@ -54,6 +60,8 @@
     <p class="section-description tech-description hidden">My current focus is the Home Lab, supported by web development, APIs, game projects, and practical infrastructure.</p>
   </div>
 
+  <details class="gallery-archive" open>
+    <summary class="gallery-archive-toggle"><span>Browse the gallery</span></summary>
   <div class="gallery">
     <div class="gallery-section" data-type="creative">
       <div class="gallery-label"><span>People</span></div>
@@ -233,7 +241,7 @@
         </div>
         <div class="stack-group">
           <h3>Backend &amp; APIs</h3>
-          <div class="stack-list"><span>REST APIs</span><span>C#</span><span>Python</div>span></div>
+          <div class="stack-list"><span>REST APIs</span><span>C#</span><span>Python</span></div>
         </div>
         <div class="stack-group">
           <h3>Languages</h3>
@@ -275,17 +283,41 @@
       </div>
     </div>
   </div>
+  </details>
+</section>
+
+<section id="featured" class="featured-work section" aria-labelledby="featured-title">
+  <div class="section-head">
+    <div><p class="eyebrow">BEYOND THE GALLERY</p><h2 id="featured-title">FEATURED<br>WORK</h2></div>
+    <p class="section-description">Projects, experiments, and Collectives I have been a part of.</p>
+  </div>
+  <div class="featured-grid">
+    <article class="feature-item">
+      <div class="feature-media"><iframe src="https://www.youtube.com/embed/KVoRbZ2-SbM?si=Ud4GX9VZmainKHeF" title="YoungPlanet - Resurrect on Jupiter music video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="feature-copy"><p class="feature-kicker">PRODUCTION ASSISTANT</p><h3>YOUNGPLANET - RESURRECT ON JUPITER</h3><p>This music video was shot and directed by my older cousin Alex Ghassan. He knew I had a love for film and music and decided to collaborate with me on this project.We drove up to maryland and got to work. My role here was to help with costumes make props and give creative feedback</p></div>
+    </article>
+    <article class="feature-item">
+      <div class="feature-media"><iframe src="https://www.youtube.com/embed/Ur4aCpN52UQ?si=hQQd3YYVHfFVhkw9" title="The Haunted Mind of an Insomniac" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="feature-copy"><p class="feature-kicker">PRODUCTION ASSISTANT</p><h3>
+The Haunted Mind Of An Insomniac
+</h3><p>Working under PL Entertainment. My role was Lighting atmodphere and set design.</p></div>
+    </article>
+    <article class="feature-item">
+      <div class="feature-media"><iframe src="https://www.youtube.com/embed/2gei1DvC_Gc?si=N1UwVDVEY3aqszh2" title="Project Title" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div> 
+      <div class="feature-copy"><p class="feature-kicker">PRODUCTION ASSISTANT</p><h3>Still Here</h3><p>Add a short overview of the work.</p></div>
+    </article>
+  </div>
 </section>
 
 <!-- Headshot -->
 <section id="headshot" class="headshot section" aria-labelledby="headshot-title">
   <div class="headshot-card">
     <div class="headshot-image">
-      <img src="images/headshot/KaeW.jpg" alt="KAE headshot">
+      <img src="images/headshot/kaeheadshot.jpg" alt="KAE headshot">
     </div>
   </div>
   <div class="headshot-copy">
-    <p class="eyebrow headline-name">Kae Davis</p>
+    <p class="headline-name">Kae Davis</p>
     <h2 id="headshot-title">Creative technologist.<br><em>Human first.</em></h2>
     <p class="about-text">I work between visual storytelling and practical technology, blending photography, digital art, and hands-on systems thinking into a creative practice that stays grounded in real-world craft.</p>
   </div>
@@ -296,7 +328,8 @@
   <div class="about-mark">KAE</div>
   <div>
     <p class="eyebrow">ABOUT THE CREATIVE / TECHNICIAN</p>
-    <h2 id="about-title">BUILD IT.<br><em>MAKE IT.</em></h2>
+    <h2 id="about-title">DREAM  IT.<br><em>MAKE IT.</em></h2>
+    
     <p class="about-text">I'm interested in the space where technology and creativity overlap. I enjoy working with computers, networks, servers, hardware, photography, digital art, and visual design.</p>
     <p class="about-text">My technical work includes a growing homelab, networking experiments, virtualization, storage, Windows systems, and hands-on hardware. My creative work gives me another way to document ideas and tell stories.</p>
     <div class="skills"><span>Networking</span><span>IT Support</span><span>Homelab</span><span>Photography</span><span>Digital Art</span><span>Hardware</span><span>Creative Tech</span></div>
