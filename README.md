@@ -1,8 +1,6 @@
 # KAE Creative — Art × Tech
 
-<<<<<<< HEAD
 A personal portfolio showcasing Kae Davis's work across photography, digital art, and film production, alongside projects in IT, networking, infrastructure, programming, and web development. The site brings together a visual gallery, selected project highlights, and an introduction to the creative technologist behind the work.
-=======
 A responsive portfolio combining art, photography, IT, networking and homelab projects.
 
 ## Gallery Sections
@@ -12,4 +10,3 @@ A responsive portfolio combining art, photography, IT, networking and homelab pr
 - GitHub project cards link to both live sites and repositories.
 
 The Creative / Tech switch changes the visual theme and filters the project grid. Click gallery images to open the lightbox preview.
->>>>>>> e2340be91f2470717955f06ca67421a42e134efb
