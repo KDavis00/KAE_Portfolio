@@ -104,6 +104,15 @@ button,a,summary{touch-action:manipulation}
 .feature-kicker{margin:0 0 8px;color:var(--muted);font:10px "DM Mono";letter-spacing:.14em}
 .feature-copy h3{margin:0 0 8px;color:var(--ink);font-size:18px}
 .feature-copy>p:last-child{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.placeholder-feature{align-self:start}
+.feature-summary{display:block;min-height:110px;padding:14px 0;border-top:1px solid var(--line);cursor:pointer;list-style:none;color:var(--ink)}
+.feature-summary::-webkit-details-marker{display:none}
+.feature-summary::after{content:"+";float:right;font:18px "DM Mono";color:var(--muted)}
+.placeholder-feature[open]>.feature-summary::after{content:"-"}
+.feature-summary .feature-kicker{margin:0 0 8px}
+.feature-summary h3{margin:0 28px 8px 0;font-size:18px}
+.feature-summary>p:last-child{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.feature-summary:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
 @media(max-width:1000px){.gallery-grid,.featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.gallery-grid,.featured-grid{grid-template-columns:1fr}.gallery-grid{gap:28px 0}.feature-copy h3{font-size:17px}}
 @media(max-width:800px){.card-info{align-items:flex-start;flex-direction:column}.card-info h3,.card-info p{max-width:100%;overflow-wrap:anywhere}}

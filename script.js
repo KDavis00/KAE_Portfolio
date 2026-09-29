@@ -11,6 +11,7 @@ const techDescription = document.querySelector(".tech-description");
 const workModeTitle = document.querySelector(".work-mode-title");
 const cards = document.querySelectorAll(".card");
 const gallerySections = document.querySelectorAll(".gallery-section");
+const featuredWork = document.querySelector("#featured");
 const lightbox = document.querySelector("#imageLightbox");
 const lightboxImage = document.querySelector("#lightboxImage");
 const lightboxClose = document.querySelector(".lightbox-close");
@@ -101,6 +102,7 @@ document.addEventListener("keydown", event => {
 
 function setMode(mode){
   document.body.classList.toggle("tech-mode", mode === "tech");
+  featuredWork?.classList.toggle("hidden", mode === "tech");
   modes.forEach(b => {
     const isActive = b.dataset.mode === mode;
     b.classList.toggle("active", isActive);
