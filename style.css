@@ -602,21 +602,30 @@ h2 em,
   font-weight: 400;
   color: var(--accent);
 }
-.headshot {
+.about {
   display: grid;
-  grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.1fr);
-  gap: 70px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
   align-items: center;
   border-top: 1px solid var(--line);
 }
-.headshot-card {
-  display: flex;
-  justify-content: flex-start;
+.about-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 18px;
   align-items: center;
+}
+.about-mark {
+  min-width: 0;
+  font-size: clamp(74px, 10vw, 142px);
+  font-weight: 800;
+  letter-spacing: -0.1em;
+  line-height: 0.8;
+  color: var(--ink);
 }
 .headshot-image {
   position: relative;
-  width: min(100%, 430px);
+  width: 100%;
   max-width: 100%;
   aspect-ratio: 4/5;
   background: var(--panel);
@@ -631,21 +640,6 @@ h2 em,
   object-position: center top;
   display: block;
 }
-.headshot-fallback {
-  position: absolute;
-  inset: 0;
-  display: none;
-  place-items: center;
-  font: 500 14px "DM Mono";
-  letter-spacing: 0.22em;
-  color: var(--muted);
-}
-.headshot-image.placeholder-headshot .headshot-fallback {
-  display: grid;
-}
-.headshot-copy {
-  max-width: 560px;
-}
 .headline-name {
   font-size: clamp(26px, 3.2vw, 42px);
   letter-spacing: 0.08em;
@@ -654,24 +648,8 @@ h2 em,
   margin-bottom: 18px;
   font-weight: 800;
 }
-.headshot-copy h2 {
-  margin: 0 0 18px;
-}
-.headshot-copy .about-text {
-  margin-top: 0;
-}
-.about {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 70px;
-  border-top: 1px solid var(--line);
-}
-.about-mark {
-  font-size: clamp(100px, 18vw, 230px);
-  font-weight: 800;
-  letter-spacing: -0.1em;
-  line-height: 0.65;
-  color: var(--ink);
+.about-copy {
+  max-width: 600px;
 }
 .about-text {
   max-width: 620px;
@@ -868,22 +846,9 @@ body.tech-mode .nav-cta:hover {
   .wide .media {
     aspect-ratio: 4/3;
   }
-  .headshot {
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-  .headshot-card {
-    justify-content: center;
-  }
-  .headshot-image {
-    width: min(100%, 340px);
-  }
   .about {
     grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  .about-mark {
-    font-size: 100px;
+    gap: 42px;
   }
   .hero-actions {
     flex-wrap: wrap;
@@ -1196,8 +1161,16 @@ summary {
   .stack-list span {
     padding: 11px 12px;
   }
-  .headshot {
-    gap: 42px;
+  .about-visual {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: 14px;
+    max-width: 560px;
+  }
+  .about-mark {
+    font-size: clamp(82px, 18vw, 140px);
+  }
+  .headshot-image {
+    max-width: 300px;
   }
   .headshot-image {
     width: min(100%, 380px);
