@@ -610,23 +610,13 @@ h2 em,
   border-top: 1px solid var(--line);
 }
 .about-visual {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  gap: 18px;
-  align-items: center;
-}
-.about-mark {
-  min-width: 0;
-  font-size: clamp(74px, 10vw, 142px);
-  font-weight: 800;
-  letter-spacing: -0.1em;
-  line-height: 0.8;
-  color: var(--ink);
+  display: flex;
+  justify-content: center;
 }
 .headshot-image {
   position: relative;
   width: 100%;
-  max-width: 100%;
+  max-width: 420px;
   aspect-ratio: 4/5;
   background: var(--panel);
   border: 1px solid var(--line);
@@ -1160,17 +1150,6 @@ summary {
   }
   .stack-list span {
     padding: 11px 12px;
-  }
-  .about-visual {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
-    gap: 14px;
-    max-width: 560px;
-  }
-  .about-mark {
-    font-size: clamp(82px, 18vw, 140px);
-  }
-  .headshot-image {
-    max-width: 300px;
   }
   .headshot-image {
     width: min(100%, 380px);
